@@ -7,7 +7,8 @@ const Products = () => {
       subtitle: '',
       description: 'Connecting artists and global collectors through data-driven, richer art experiences.',
       gradient: 'linear-gradient(135deg, #374cc1 0%, #50308e 100%)',
-      image: '/assets/images/products/fluxrs.png'
+      image: '/assets/images/products/fluxrs.png',
+      link: 'https://fluxrs.xyz/'
     },
     {
       title: 'Synapsy',
@@ -30,25 +31,47 @@ const Products = () => {
       </div>
       
       <div className="gallery-grid">
-        {products.map((product, index) => (
-          <div key={index} className={`gallery-item ${index > 0 ? 'disabled' : ''}`}>
-            <div className="gallery-image">
-              {product.image ? (
-                <img src={product.image} alt={product.title} className="gallery-product-image" loading="lazy" />
-              ) : (
-                <div className="image-placeholder" style={{ background: product.gradient }}></div>
-              )}
-              {index > 0 && (
-                <div className="coming-soon-badge">Coming Soon</div>
-              )}
+        {products.map((product, index) => {
+          const cardContent = (
+            <>
+              <div className="gallery-image">
+                {product.image ? (
+                  <img src={product.image} alt={product.title} className="gallery-product-image" loading="lazy" />
+                ) : (
+                  <div className="image-placeholder" style={{ background: product.gradient }}></div>
+                )}
+                {index > 0 && (
+                  <div className="coming-soon-badge">Coming Soon</div>
+                )}
+              </div>
+              <div className="gallery-info">
+                <h3>{product.title}</h3>
+                <p>{product.subtitle}</p>
+                <p className="gallery-description">{product.description}</p>
+              </div>
+            </>
+          )
+
+          if (product.link) {
+            return (
+              <a
+                key={index}
+                href={product.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`gallery-item ${index > 0 ? 'disabled' : ''}`}
+              >
+                {cardContent}
+              </a>
+            )
+          }
+
+          return (
+            <div key={index} className={`gallery-item ${index > 0 ? 'disabled' : ''}`}>
+              {cardContent}
             </div>
-            <div className="gallery-info">
-              <h3>{product.title}</h3>
-              <p>{product.subtitle}</p>
-              <p className="gallery-description">{product.description}</p>
-            </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </section>
   )
