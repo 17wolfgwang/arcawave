@@ -34,7 +34,7 @@ const Products = () => {
           <div key={index} className={`gallery-item ${index > 0 ? 'disabled' : ''}`}>
             <div className="gallery-image">
               {product.image ? (
-                <img src={product.image} alt={product.title} className="gallery-product-image" />
+                <img src={product.image} alt={product.title} className="gallery-product-image" loading="lazy" />
               ) : (
                 <div className="image-placeholder" style={{ background: product.gradient }}></div>
               )}

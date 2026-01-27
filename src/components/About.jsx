@@ -8,6 +8,41 @@ const About = () => {
     { id: 3, name: 'SNU', logo: '/assets/images/cards/partners/snu.svg' }
   ]
 
+  // Lazy loading을 위한 Intersection Observer
+  const cardRefs = useRef({})
+  
+  useEffect(() => {
+    const observers = []
+    
+    Object.keys(cardRefs.current).forEach((cardId) => {
+      const card = cardRefs.current[cardId]
+      if (!card) return
+      
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const cardElement = entry.target
+              const imageUrl = cardElement.dataset.image
+              if (imageUrl && !cardElement.style.backgroundImage.includes(imageUrl)) {
+                cardElement.style.backgroundImage = `url("${imageUrl}")`
+              }
+              observer.unobserve(cardElement)
+            }
+          })
+        },
+        { rootMargin: '50px' }
+      )
+      
+      observer.observe(card)
+      observers.push(observer)
+    })
+    
+    return () => {
+      observers.forEach(observer => observer.disconnect())
+    }
+  }, [])
+
   const featureCards = [
     {
       id: 1,
@@ -87,6 +122,7 @@ const About = () => {
                           src={logo.logo} 
                           alt={logo.name} 
                           className="partner-logo-image"
+                          loading="lazy"
                         />
                       </div>
                     ))}
@@ -125,9 +161,15 @@ const About = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`about-feature-card ${card.id === 5 ? 'partners-card' : ''}`}
+                ref={(el) => {
+                  if (el && card.image) {
+                    cardRefs.current[card.id] = el
+                  }
+                }}
+                data-image={card.image || ''}
                 style={{
-                  backgroundColor: card.image ? 'transparent' : card.backgroundColor,
-                  backgroundImage: card.image ? `url("${card.image}")` : 'none',
+                  backgroundColor: card.image ? card.backgroundColor : card.backgroundColor,
+                  backgroundImage: 'none',
                   backgroundSize: card.image ? 'cover' : 'auto',
                   backgroundPosition: card.image ? 'center' : 'initial',
                   gridColumn: card.gridColumn,
@@ -143,9 +185,15 @@ const About = () => {
               <div
                 key={card.id}
                 className={`about-feature-card ${card.id === 5 ? 'partners-card' : ''}`}
+                ref={(el) => {
+                  if (el && card.image) {
+                    cardRefs.current[card.id] = el
+                  }
+                }}
+                data-image={card.image || ''}
                 style={{
-                  backgroundColor: card.image ? 'transparent' : card.backgroundColor,
-                  backgroundImage: card.image ? `url("${card.image}")` : 'none',
+                  backgroundColor: card.image ? card.backgroundColor : card.backgroundColor,
+                  backgroundImage: 'none',
                   backgroundSize: card.image ? 'cover' : 'auto',
                   backgroundPosition: card.image ? 'center' : 'initial',
                   gridColumn: card.gridColumn,

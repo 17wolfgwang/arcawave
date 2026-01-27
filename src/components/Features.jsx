@@ -90,7 +90,7 @@ const Features = () => {
                 </div>
               ) : feature.image ? (
                 <div className="feature-content-image">
-                  <img src={feature.image} alt={feature.title} />
+                  <img src={feature.image} alt={feature.title} loading="lazy" />
                 </div>
               ) : (
                 <div className="feature-content-placeholder">
