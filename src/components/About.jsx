@@ -81,15 +81,15 @@ const About = () => {
     },
     {
       id: 4,
-      title: '50+ Artist',
-      description: 'Empowering artists by building a sustainable creative ecosystem.',
+      title: '4 Patents',
+      description: 'Innovative technologies protected by intellectual property rights.',
       backgroundColor: '#8B8A6B',
-      image: '/assets/images/cards/artist.jpg',
+      image: '/assets/images/cards/patent.png',
       gridColumn: 'span 1',
       gridRow: 'span 1',
-      link: '/features/artists',
+      link: '/features/patents',
       isHalf: true,
-      hasWhiteText: true
+      hasWhiteText: false
     },
     {
       id: 5,

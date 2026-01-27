@@ -1,34 +1,57 @@
 import React, { useState } from 'react'
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [submitStatus, setSubmitStatus] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    
+
     if (!formData.name || !formData.email || !formData.message) {
       alert('Please fill in all fields.')
       return
     }
 
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Contact from ${formData.name}`)
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)
-    const mailtoLink = `mailto:coo@arcawave.xyz?subject=${subject}&body=${body}`
-    
-    // Open default email client
-    window.location.href = mailtoLink
-    
-    // Reset form after a short delay
-    setTimeout(() => {
+    setIsSubmitting(true)
+    setSubmitStatus('Sending...')
+
+    try {
+      // EmailJS 설정
+      const serviceId = 'service_z7a34u8'
+      const templateId = 'template_xjuw9fm'
+      const publicKey = 'r_2qIbPongkLxx3T2'
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'coo@arcawave.xyz',
+          reply_to: formData.email,
+        },
+        publicKey
+      )
+
+      setSubmitStatus('Message Sent!')
       setFormData({ name: '', email: '', message: '' })
-      setSubmitStatus('Email client opened')
-      
+
       setTimeout(() => {
         setSubmitStatus('')
       }, 3000)
-    }, 100)
+    } catch (error) {
+      console.error('Email sending failed:', error)
+      setSubmitStatus('Failed to send. Please try again.')
+
+      setTimeout(() => {
+        setSubmitStatus('')
+      }, 3000)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e) => {
@@ -45,7 +68,7 @@ const Contact = () => {
           <h2 className="section-title">Get in Touch</h2>
           <p className="section-subtitle">We'd love to hear from you. Reach out to start a conversation.</p>
         </div>
-        
+
         <div className="contact-grid">
           <div className="contact-info">
             <div className="contact-item">
@@ -55,50 +78,50 @@ const Contact = () => {
             <div className="contact-item">
               <h3>Social</h3>
               <div className="social-links">
-                <a href="#" className="social-link">Instagram</a>
-                <a href="#" className="social-link">Twitter</a>
-                <a href="#" className="social-link">LinkedIn</a>
+                <a href="https://www.instagram.com/fluxrs_ai/" target="_blank" rel="noopener noreferrer" className="social-link">Instagram</a>
+                <a href="https://www.linkedin.com/company/arcawave/" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
               </div>
             </div>
           </div>
-          
+
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
+              <input
+                type="text"
+                id="name"
+                name="name"
                 value={formData.name}
                 onChange={handleChange}
-                required 
+                required
               />
             </div>
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
+              <input
+                type="email"
+                id="email"
+                name="email"
                 value={formData.email}
                 onChange={handleChange}
-                required 
+                required
               />
             </div>
             <div className="form-group">
               <label htmlFor="message">Message</label>
-              <textarea 
-                id="message" 
-                name="message" 
-                rows="6" 
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
                 value={formData.message}
                 onChange={handleChange}
                 required
               ></textarea>
             </div>
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="submit-btn"
+              disabled={isSubmitting}
               style={submitStatus === 'Message Sent!' ? { background: '#34a853' } : {}}
             >
               {submitStatus || 'Send Message'}

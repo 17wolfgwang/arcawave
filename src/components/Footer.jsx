@@ -10,9 +10,8 @@ const Footer = () => {
         </div>
         <div className="footer-section">
           <h4>Connect</h4>
-          <a href="#">Instagram</a>
-          <a href="#">Twitter</a>
-          <a href="#">LinkedIn</a>
+          <a href="https://www.instagram.com/fluxrs_ai/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/company/arcawave/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
         <div className="footer-section">
           <h4>Contact</h4>
