@@ -19,9 +19,9 @@ const Contact = () => {
 
     try {
       // EmailJS 설정
-      const serviceId = 'service_z7a34u8'
-      const templateId = 'template_xjuw9fm'
-      const publicKey = 'r_2qIbPongkLxx3T2'
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_z7a34u8'
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_xjuw9fm'
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'r_2qIbPongkLxx3T2'
 
       await emailjs.send(
         serviceId,
