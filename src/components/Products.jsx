@@ -7,7 +7,7 @@ const Products = () => {
       subtitle: '',
       description: 'Connecting artists and global collectors through data-driven, richer art experiences.',
       gradient: 'linear-gradient(135deg, #374cc1 0%, #50308e 100%)',
-      image: '/assets/images/products/fluxrs.png',
+      image: '/assets/images/products/fluxrs.webp',
       link: 'https://fluxrs.xyz/'
     },
     {

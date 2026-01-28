@@ -16,7 +16,7 @@ const Features = () => {
           title: 'Copyright-free',
           description: '100% legal safety against $1.7B in industry risks.',
           type: 'copyright-free',
-          image: '/assets/images/keywords/ip.png'
+          image: '/assets/images/keywords/ip.webp'
         },
     {
       title: 'Real-world Impact',
