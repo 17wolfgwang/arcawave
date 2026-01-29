@@ -1,0 +1,12 @@
+# robots.txt for Arcawave
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.arcawave.xyz/sitemap.xml
+
+# Disallow specific paths if needed
+# Disallow: /admin/
+# Disallow: /private/
+

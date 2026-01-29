@@ -45,6 +45,7 @@ const Hero = () => {
             playsInline
             preload="metadata"
             style={{ opacity: isVideoLoaded ? 1 : 0 }}
+            aria-label="Arcawave product demonstration video showing art and technology integration"
           >
             <source src="/assets/videos/intro_.webm" type="video/webm" />
             <source src="/assets/videos/intro_.mp4" type="video/mp4" />
