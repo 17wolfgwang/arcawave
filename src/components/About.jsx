@@ -160,13 +160,15 @@ const About = () => {
                 href={card.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`about-feature-card ${card.id === 5 ? 'partners-card' : ''}`}
+                className={`about-feature-card ${card.id === 5 ? 'partners-card' : ''} card-id-${card.id}`}
                 ref={(el) => {
                   if (el && card.image) {
                     cardRefs.current[card.id] = el
                   }
                 }}
                 data-image={card.image || ''}
+                data-grid-column={card.gridColumn}
+                data-grid-row={card.gridRow}
                 style={{
                   backgroundColor: card.image ? card.backgroundColor : card.backgroundColor,
                   backgroundImage: 'none',
@@ -184,13 +186,15 @@ const About = () => {
             return (
               <div
                 key={card.id}
-                className={`about-feature-card ${card.id === 5 ? 'partners-card' : ''}`}
+                className={`about-feature-card ${card.id === 5 ? 'partners-card' : ''} card-id-${card.id}`}
                 ref={(el) => {
                   if (el && card.image) {
                     cardRefs.current[card.id] = el
                   }
                 }}
                 data-image={card.image || ''}
+                data-grid-column={card.gridColumn}
+                data-grid-row={card.gridRow}
                 style={{
                   backgroundColor: card.image ? card.backgroundColor : card.backgroundColor,
                   backgroundImage: 'none',
