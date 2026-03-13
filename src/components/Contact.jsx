@@ -1,145 +1,58 @@
-import React, { useState } from 'react'
-import emailjs from '@emailjs/browser'
+import React from 'react'
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
-  const [submitStatus, setSubmitStatus] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    if (!formData.name || !formData.email || !formData.message) {
-      alert('Please fill in all fields.')
-      return
-    }
-
-    setIsSubmitting(true)
-    setSubmitStatus('Sending...')
-
-    try {
-      // EmailJS 설정
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_z7a34u8'
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_xjuw9fm'
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'r_2qIbPongkLxx3T2'
-
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_email: 'coo@arcawave.xyz',
-          reply_to: formData.email,
-        },
-        publicKey
-      )
-
-      setSubmitStatus('Message Sent!')
-      setFormData({ name: '', email: '', message: '' })
-
-      setTimeout(() => {
-        setSubmitStatus('')
-      }, 3000)
-    } catch (error) {
-      console.error('Email sending failed:', error)
-      setSubmitStatus('Failed to send. Please try again.')
-
-      setTimeout(() => {
-        setSubmitStatus('')
-      }, 3000)
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
   return (
-    <section id="contact" className="contact">
-      <div className="contact-content">
-        <div className="contact-header">
-          <h2 className="section-title">Get in Touch</h2>
-          <p className="section-subtitle">We'd love to hear from you. Reach out to start a conversation.</p>
+    <>
+      <div style={{height: '120px'}}></div>
+      <section className="relative py-20 px-4 bg-primary overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
+          <div className="absolute rounded-full opacity-40" style={{backgroundColor: 'rgb(124, 58, 237)', width: '8px', height: '8px', top: '10%', left: '15%'}}></div>
+          <div className="absolute rounded-full opacity-40" style={{backgroundColor: 'rgb(249, 115, 22)', width: '12px', height: '12px', top: '25%', left: '85%'}}></div>
+          <div className="absolute rounded-full opacity-40" style={{backgroundColor: 'rgb(244, 114, 182)', width: '10px', height: '10px', top: '60%', left: '10%'}}></div>
+          <div className="absolute rounded-full opacity-40" style={{backgroundColor: 'rgb(16, 185, 129)', width: '8px', height: '8px', top: '75%', left: '90%'}}></div>
+          <div className="absolute rounded-full opacity-40" style={{backgroundColor: 'rgb(124, 58, 237)', width: '6px', height: '6px', top: '40%', left: '5%'}}></div>
+          <div className="absolute rounded-full opacity-40" style={{backgroundColor: 'rgb(249, 115, 22)', width: '10px', height: '10px', top: '85%', left: '20%'}}></div>
         </div>
-
-        <div className="contact-grid">
-          <div className="contact-info">
-            <div className="contact-item">
-              <h3>Email</h3>
-              <a href="mailto:coo@arcawave.xyz">coo@arcawave.xyz</a>
-            </div>
-            <div className="contact-item">
-              <h3>Social</h3>
-              <div className="social-links">
-                <a href="https://www.instagram.com/fluxrs_ai/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor" />
-                  </svg>
-                </a>
-                <a href="https://www.linkedin.com/company/arcawave/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="6"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="submit-btn"
-              disabled={isSubmitting}
-              style={submitStatus === 'Message Sent!' ? { background: '#34a853' } : {}}
-            >
-              {submitStatus || 'Send Message'}
+        <div className="max-w-[800px] mx-auto text-center relative z-10">
+          <h2 className="mb-6 text-white">아이의 창의성이 피어나는<br />첫 모험을 시작하세요</h2>
+          <p className="text-xl mb-10 text-white/90">
+            7일 무료 체험으로 STEAM Village를 경험해보세요.<br />신용카드 등록 없이 바로 시작할 수 있습니다.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button className="bg-white text-primary px-8 py-4 rounded-[12px] flex items-center gap-2 text-lg font-semibold" tabIndex="0" style={{boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 16px'}}>
+              무료 체험 시작하기
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right w-5 h-5">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
             </button>
-          </form>
+            <button className="bg-transparent text-white px-8 py-4 rounded-[12px] border-2 border-white/30 text-lg font-semibold" tabIndex="0">얼리버드 혜택 보기</button>
+          </div>
+          <div className="mt-8 flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-star w-5 h-5 text-secondary fill-secondary">
+              <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-star w-5 h-5 text-secondary fill-secondary">
+              <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-star w-5 h-5 text-secondary fill-secondary">
+              <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-star w-5 h-5 text-secondary fill-secondary">
+              <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-star w-5 h-5 text-secondary fill-secondary">
+              <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+            </svg>
+            <span className="ml-2 text-white/90">베타 참여 가족 만족도 4.9/5</span>
+          </div>
+          <div className="mt-8 pt-8 border-t border-white/20">
+            <p className="text-white/80 text-sm">📧 궁금한 점이 있으신가요? hello@steamvillage.com</p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
 
 export default Contact
-

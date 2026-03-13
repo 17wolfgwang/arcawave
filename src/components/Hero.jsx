@@ -1,55 +1,168 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { useParallax } from '../hooks/useParallax'
+import React from 'react'
+import { motion } from 'framer-motion'
 
 const Hero = () => {
-  useParallax()
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false)
-  const videoRef = useRef(null)
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (video) {
-      const handleCanPlay = () => {
-        setIsVideoLoaded(true)
-      }
-      video.addEventListener('canplay', handleCanPlay)
-      return () => {
-        video.removeEventListener('canplay', handleCanPlay)
-      }
-    }
-  }, [])
-
   return (
-    <section id="works" className="hero">
-      <div className="hero-content">
-        <h1 className="hero-title">
-          <span className="title-line">The All-in-one Asset Engine</span>
-          <span className="title-line">for Creators.</span>
-        </h1>
-        <p className="hero-subtitle">
-          Expand freely. Use safely. Bridge spaces.
-        </p>
-        
-        <div className="hero-video-container">
-          {!isVideoLoaded && (
-            <div className="hero-video-placeholder">
-              <div className="video-loading-spinner"></div>
-            </div>
-          )}
-          <video
-            ref={videoRef}
-            className="hero-video"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            style={{ opacity: isVideoLoaded ? 1 : 0 }}
-            aria-label="Arcawave product demonstration video showing art and technology integration"
+    <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute rounded-full opacity-40" style={{backgroundColor: 'rgb(124, 58, 237)', width: '8px', height: '8px', top: '10%', left: '15%'}}></div>
+          <div className="absolute rounded-full opacity-40" style={{backgroundColor: 'rgb(249, 115, 22)', width: '12px', height: '12px', top: '25%', left: '85%'}}></div>
+          <div className="absolute rounded-full opacity-40" style={{backgroundColor: 'rgb(244, 114, 182)', width: '10px', height: '10px', top: '60%', left: '10%'}}></div>
+          <div className="absolute rounded-full opacity-40" style={{backgroundColor: 'rgb(16, 185, 129)', width: '8px', height: '8px', top: '75%', left: '90%'}}></div>
+          <div className="absolute rounded-full opacity-40" style={{backgroundColor: 'rgb(124, 58, 237)', width: '6px', height: '6px', top: '40%', left: '5%'}}></div>
+          <div className="absolute rounded-full opacity-40" style={{backgroundColor: 'rgb(249, 115, 22)', width: '10px', height: '10px', top: '85%', left: '20%'}}></div>
+        </div>
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-[15%] left-[20%] text-secondary opacity-30 rotate-12">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"></path>
+            </svg>
+          </div>
+          <div className="absolute top-[70%] right-[15%] text-pink opacity-30 -rotate-12">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"></path>
+            </svg>
+          </div>
+          <div className="absolute top-[45%] left-[8%] text-success opacity-30 rotate-45">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"></path>
+            </svg>
+          </div>
+        </div>
+        <div className="absolute top-[10%] left-[5%] text-primary opacity-20" style={{transform: 'translateY(-0.134736px) rotate(0.0673678deg)'}}>
+          <svg className="w-16 h-16 lg:w-20 lg:h-20" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 8C18.745 8 8 18.745 8 32c0 8.837 7.163 16 16 16 2.21 0 4-1.79 4-4 0-1.047-.402-2.002-1.058-2.714-.63-.686-.942-1.582-.942-2.286 0-2.21 1.79-4 4-4h4.667C43.955 35 52 26.955 52 17.667 52 12.373 44.627 8 32 8z" fill="currentColor" opacity="0.3"></path>
+            <circle cx="20" cy="24" r="3" fill="currentColor"></circle>
+            <circle cx="28" cy="18" r="3" fill="currentColor"></circle>
+            <circle cx="38" cy="18" r="3" fill="currentColor"></circle>
+            <circle cx="44" cy="26" r="3" fill="currentColor"></circle>
+          </svg>
+        </div>
+        <div className="absolute top-[15%] right-[8%] text-secondary opacity-20" style={{transform: 'translateY(9.95596px) rotate(-4.97798deg)'}}>
+          <svg className="w-14 h-14 lg:w-16 lg:h-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M52 8L42 18L46 22L56 12L52 8Z" fill="currentColor"></path>
+            <path d="M40 20L24 36C24 36 20 42 20 46C20 50 22 54 26 54C30 54 36 50 36 50L52 34L40 20Z" fill="currentColor" opacity="0.3"></path>
+          </svg>
+        </div>
+        <div className="absolute top-[45%] left-[3%] text-pink opacity-25" style={{transform: 'scale(1.17968) rotate(13.4757deg)'}}>
+          <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="currentColor"></path>
+          </svg>
+        </div>
+        <div className="absolute bottom-[20%] right-[12%] text-success opacity-20" style={{transform: 'translateY(-7.44539px) rotate(-4.65337deg)'}}>
+          <svg className="w-14 h-14" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 8C18.745 8 8 18.745 8 32c0 8.837 7.163 16 16 16 2.21 0 4-1.79 4-4 0-1.047-.402-2.002-1.058-2.714-.63-.686-.942-1.582-.942-2.286 0-2.21 1.79-4 4-4h4.667C43.955 35 52 26.955 52 17.667 52 12.373 44.627 8 32 8z" fill="currentColor" opacity="0.3"></path>
+            <circle cx="20" cy="24" r="3" fill="currentColor"></circle>
+            <circle cx="28" cy="18" r="3" fill="currentColor"></circle>
+            <circle cx="38" cy="18" r="3" fill="currentColor"></circle>
+            <circle cx="44" cy="26" r="3" fill="currentColor"></circle>
+          </svg>
+        </div>
+      </div>
+      <div className="max-w-[1200px] mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
           >
-            <source src="/assets/videos/intro_.webm" type="video/webm" />
-            <source src="/assets/videos/intro_.mp4" type="video/mp4" />
-          </video>
+            <div className="flex flex-wrap gap-3">
+              {["4~8세", "STEAM 융합", "매주 새 화가"].map((tag, i) => (
+                <motion.div
+                  key={tag}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="px-5 py-2.5 rounded-full border"
+                  style={{
+                    backgroundColor: ["#F5F0FF", "#FFF7ED", "#ECFDF5"][i],
+                    borderColor: ["rgba(124, 58, 237, 0.1)", "rgba(249, 115, 22, 0.1)", "rgba(244, 114, 182, 0.1)"][i],
+                  }}
+                >
+                  <span className="text-sm font-semibold" style={{color: ["#7C3AED", "#F97316", "#F472B6"][i]}}>{tag}</span>
+                </motion.div>
+              ))}
+            </div>
+            <h1 className="leading-tight" style={{fontSize: '48px', fontWeight: 800, background: 'linear-gradient(135deg, rgb(124, 58, 237) 0%, rgb(249, 115, 22) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
+              명화를 보고, 빛을 배우고,<br />나만의 그림을 그리는 모험
+            </h1>
+            <p className="text-base leading-relaxed" style={{color: 'rgb(100, 116, 139)'}}>
+              모네의 빛, 고흐의 감정, 칸딘스키의 도형 속에 과학·수학·공학이 숨어있습니다. 아이는 모험을 할 뿐, STEAM은 자연스럽게.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button className="bg-primary text-white px-8 py-4 rounded-[12px] flex items-center justify-center gap-2 text-base font-semibold" tabIndex="0" style={{boxShadow: 'rgba(124, 58, 237, 0.2) 0px 4px 12px'}}>
+                얼리버드 신청하기
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right w-5 h-5">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </button>
+              <button className="bg-transparent text-foreground px-8 py-4 rounded-[12px] border-2 border-primary/20 flex items-center justify-center gap-2 text-base font-semibold" tabIndex="0" style={{boxShadow: 'rgba(124, 58, 237, 0.08) 0px 2px 8px'}}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-play w-5 h-5">
+                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                </svg>
+                소개 영상 보기
+              </button>
+            </div>
+            <div className="pt-4 flex items-center gap-2 text-sm" style={{color: 'rgb(100, 116, 139)'}}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-award w-4 h-4 text-success flex-shrink-0">
+                <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path>
+                <circle cx="12" cy="8" r="6"></circle>
+              </svg>
+              <span>서울대 · KAIST · 버클리 출신 팀 · 전문가 감수 교육 콘텐츠</span>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative bg-white rounded-[20px] p-8 lg:p-12 flex items-center justify-center min-h-[400px] lg:min-h-[500px] border-4 border-dashed border-primary/20" style={{boxShadow: 'rgba(124, 58, 237, 0.1) 0px 8px 24px'}}>
+              <div className="text-center space-y-4">
+                <div className="w-20 h-20 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-palette w-10 h-10 text-primary">
+                    <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+                    <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+                    <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                    <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+                  </svg>
+                </div>
+                <p className="text-lg font-semibold text-foreground">앱 화면 목업</p>
+                <p className="text-sm" style={{color: 'rgb(100, 116, 139)'}}>IP/화면 확정 후 교체</p>
+              </div>
+              <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-primary/30 rounded-tl-lg"></div>
+              <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-primary/30 rounded-tr-lg"></div>
+              <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-primary/30 rounded-bl-lg"></div>
+              <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-primary/30 rounded-br-lg"></div>
+              
+              {/* Floating decorations */}
+              <motion.span
+                className="absolute -top-4 -right-4 text-4xl"
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                🎨
+              </motion.span>
+              <motion.span
+                className="absolute -bottom-4 -left-4 text-3xl"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                ⭐
+              </motion.span>
+              <motion.span
+                className="absolute top-1/4 -right-8 text-2xl"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+              >
+                🖌️
+              </motion.span>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -57,4 +170,3 @@ const Hero = () => {
 }
 
 export default Hero
-
