@@ -1,7 +1,11 @@
 import React from 'react'
+import { LanguageProvider } from './i18n/LanguageContext'
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
 import Features from './components/Features'
+import LearningProcess from './components/LearningProcess'
+import WeeklyContent from './components/WeeklyContent'
+import AppPreview from './components/AppPreview'
 import Testimonials from './components/Testimonials'
 import About from './components/About'
 import Products from './components/Products'
@@ -13,31 +17,42 @@ import FloatingDecorations from './components/FloatingDecorations'
 
 function App() {
   return (
+    <LanguageProvider>
     <main className="relative min-h-screen bg-background overflow-x-hidden">
       <FloatingDecorations />
       <Navigation />
-      
+
       <Hero />
       <WaveDivider flip />
-      
+
       <Features />
       <WaveDivider />
-      
-      <Testimonials />
+
+      <LearningProcess />
       <WaveDivider flip />
-      
+
+      <WeeklyContent />
+      <WaveDivider />
+
+      <AppPreview />
+      <WaveDivider flip />
+
       <About />
       <WaveDivider />
-      
-      <Products />
+
+      <Testimonials />
       <WaveDivider flip />
-      
-      <Pricing />
+
+      <Products />
       <WaveDivider />
-      
+
+      <Pricing />
+      <WaveDivider flip />
+
       <Contact />
       <Footer />
     </main>
+    </LanguageProvider>
   )
 }
 

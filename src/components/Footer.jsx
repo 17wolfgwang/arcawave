@@ -1,6 +1,9 @@
 import React from 'react'
+import { useLanguage } from '../i18n/LanguageContext'
 
 const Footer = () => {
+  const { t } = useLanguage()
+
   return (
     <footer className="py-12 px-4 bg-foreground">
       <div className="max-w-[1200px] mx-auto">
@@ -18,35 +21,35 @@ const Footer = () => {
               </div>
               <div className="font-bold text-lg text-white" style={{fontFamily: 'var(--font-display)'}}>STEAM Village</div>
             </div>
-            <p className="text-white/60 text-sm">Paint, Learn, Create<br />4~8세 아이들을 위한 STEAM 교육 앱</p>
+            <p className="text-white/60 text-sm">{t.footer.desc}<br />{t.footer.descSub}</p>
           </div>
           <div>
-            <h4 className="text-white mb-4 text-sm font-semibold">Product</h4>
+            <h4 className="text-white mb-4 text-sm font-semibold">{t.footer.product}</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-white/60 hover:text-white transition-colors">Features</a></li>
-              <li><a href="#" className="text-white/60 hover:text-white transition-colors">Pricing</a></li>
-              <li><a href="#" className="text-white/60 hover:text-white transition-colors">콘텐츠 소개</a></li>
+              {t.footer.productLinks.map((link, index) => (
+                <li key={index}><a href="#" className="text-white/60 hover:text-white transition-colors">{link}</a></li>
+              ))}
             </ul>
           </div>
           <div>
-            <h4 className="text-white mb-4 text-sm font-semibold">Company</h4>
+            <h4 className="text-white mb-4 text-sm font-semibold">{t.footer.company}</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-white/60 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="text-white/60 hover:text-white transition-colors">Our Team</a></li>
-              <li><a href="#" className="text-white/60 hover:text-white transition-colors">Contact</a></li>
+              {t.footer.companyLinks.map((link, index) => (
+                <li key={index}><a href="#" className="text-white/60 hover:text-white transition-colors">{link}</a></li>
+              ))}
             </ul>
           </div>
           <div>
-            <h4 className="text-white mb-4 text-sm font-semibold">Legal</h4>
+            <h4 className="text-white mb-4 text-sm font-semibold">{t.footer.legal}</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-white/60 hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-white/60 hover:text-white transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="text-white/60 hover:text-white transition-colors">고객지원</a></li>
+              {t.footer.legalLinks.map((link, index) => (
+                <li key={index}><a href="#" className="text-white/60 hover:text-white transition-colors">{link}</a></li>
+              ))}
             </ul>
           </div>
         </div>
         <div className="border-t border-white/10 pt-8 text-center text-white/60 text-sm">
-          <p>© 2026 STEAM Village. All rights reserved. Made with ❤️ for curious kids.</p>
+          <p>{t.footer.copyright}</p>
         </div>
       </div>
     </footer>

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../i18n/LanguageContext'
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const { lang, t, toggleLang } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,21 +38,29 @@ const Navigation = () => {
           </div>
           <div>
             <div className="font-bold text-xl text-foreground" style={{fontFamily: 'var(--font-display)'}}>STEAM Village</div>
-            <div className="text-xs text-body-text">Paint, Learn, Create</div>
+            <div className="text-xs text-body-text">{t.nav.subtitle}</div>
           </div>
         </div>
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#features" className="text-body-text hover:text-foreground transition-colors">Features</a>
-          <a href="#pricing" className="text-body-text hover:text-foreground transition-colors">Pricing</a>
-          <a href="#about" className="text-body-text hover:text-foreground transition-colors">About</a>
+          <a href="#features" className="text-body-text hover:text-foreground transition-colors">{t.nav.features}</a>
+          <a href="#pricing" className="text-body-text hover:text-foreground transition-colors">{t.nav.pricing}</a>
+          <a href="#about" className="text-body-text hover:text-foreground transition-colors">{t.nav.about}</a>
         </nav>
-        <button 
-          className="bg-primary text-white px-6 py-3 rounded-[12px] font-semibold hover:bg-primary/90 transition-all" 
-          tabIndex="0"
-          onClick={() => document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })}
-        >
-          얼리버드 신청
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={toggleLang}
+            className="px-3 py-2 rounded-[8px] text-sm font-semibold border border-primary/20 text-primary hover:bg-primary/5 transition-all"
+          >
+            {lang === 'ko' ? 'EN' : '한'}
+          </button>
+          <button
+            className="bg-primary text-white px-6 py-3 rounded-[12px] font-semibold hover:bg-primary/90 transition-all"
+            tabIndex="0"
+            onClick={() => document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            {t.nav.cta}
+          </button>
+        </div>
       </div>
       </motion.header>
     </AnimatePresence>
