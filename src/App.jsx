@@ -14,6 +14,8 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import WaveDivider from './components/WaveDivider'
 import FloatingDecorations from './components/FloatingDecorations'
+import BetaStats from './components/BetaStats'
+import PainSolution from './components/PainSolution'
 
 function App() {
   return (
@@ -23,7 +25,10 @@ function App() {
       <Navigation />
 
       <Hero />
-      <WaveDivider flip />
+
+      <BetaStats />
+
+      <PainSolution />
 
       <Features />
       <WaveDivider />

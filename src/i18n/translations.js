@@ -10,10 +10,11 @@ const translations = {
     },
     // Hero
     hero: {
-      tags: ['4~8세', 'STEAM 융합', '매주 새 화가'],
-      title: '명화를 보고, 빛을 배우고,',
-      titleBr: '나만의 그림을 그리는 모험',
-      desc: '모네의 빛, 고흐의 감정, 칸딘스키의 도형 속에 과학·수학·공학이 숨어있습니다. 아이는 모험을 할 뿐, STEAM은 자연스럽게.',
+      tags: ['5~11세', 'STEAM 융합', '매주 새 화가'],
+      title: '그림으로 시작하고, 개념을 발견하고,',
+      titleBr: '창의성으로 완성하는 예술교육',
+      subtitle: '집에서 만나는 대치동 창의성 교육! 놀이처럼 배우는 STEAM',
+      desc: '모네의 빛, 고흐의 해바라기, 칸딘스키의 도형 속에 우리 아이의 호기심을 자극할 내용들이 숨어있습니다. 모험 속에서, 개념은 자연스럽게.',
       ctaPrimary: '얼리버드 신청하기',
       ctaSecondary: '소개 영상 보기',
       credential: '서울대 · KAIST · 버클리 출신 팀 · 전문가 감수 교육 콘텐츠',
@@ -266,6 +267,44 @@ const translations = {
       legalLinks: ['Privacy Policy', 'Terms of Service', '고객지원'],
       copyright: '© 2026 STEAM Village. All rights reserved. Made with ❤️ for curious kids.',
     },
+    betaStats: {
+      badge: '베타 테스트 검증 데이터',
+      stat1Value: '3.2배',
+      stat1Label: '집중 시간 증가',
+      stat2Value: '89%',
+      stat2Label: '스스로 다시 찾는 비율',
+      stat3Value: '47분',
+      stat3Label: '평균 몰입 시간',
+      stat4Value: '92%',
+      stat4Label: 'STEAM 개념 습득률',
+      footnote: '*100명의 5~11세 아동, 4주간 베타 테스트 결과 (2026.2)',
+    },
+    painSolution: {
+      painTitle: '혹시 이런 고민, 하고 계신가요?',
+      pains: [
+        '"유튜브는 30분도 보는데, 교육 앱은 5분만에 질려해요"',
+        '"학습 앱들은 다 점수 매기기 바쁘고, 아이는 틀릴까봐 위축돼요"',
+        '"수학은 수학, 과학은 과학... 따로따로 배우면 연결이 안 되더라구요"',
+      ],
+      solutionTitle: 'STEAM Village의 답변',
+      solutions: [
+        {
+          icon: '🎨',
+          title: '놀이처럼, 모험처럼',
+          desc: '아이들은 "공부한다"는 느낌 없이 평균 <strong>47분간 몰입</strong>합니다',
+        },
+        {
+          icon: '💡',
+          title: '실패를 탐험으로',
+          desc: '점수 대신 <strong>"왜 그렇게 생각했어?"</strong>를 묻습니다',
+        },
+        {
+          icon: '🌈',
+          title: '예술로 통합하는 STEAM',
+          desc: '그림 그리다가 자연스럽게 <strong>과학·수학을 92% 습득</strong>',
+        },
+      ],
+    },
   },
   en: {
     // Navigation
@@ -278,10 +317,11 @@ const translations = {
     },
     // Hero
     hero: {
-      tags: ['Ages 4-8', 'STEAM', 'New Artist Weekly'],
-      title: 'See masterpieces, learn about light,',
-      titleBr: 'and paint your own adventure',
-      desc: 'Science, math, and engineering are hidden inside Monet\'s light, Van Gogh\'s emotion, and Kandinsky\'s shapes. Kids just go on adventures — STEAM comes naturally.',
+      tags: ['Ages 5-11', 'STEAM', 'New Artist Weekly'],
+      title: 'Start with art, discover concepts,',
+      titleBr: 'and complete with creativity',
+      subtitle: 'Daechi-dong creativity education at home! Learn STEAM through play',
+      desc: 'Hidden inside Monet\'s light, Van Gogh\'s sunflowers, and Kandinsky\'s shapes are contents that spark your child\'s curiosity. In adventure, concepts come naturally.',
       ctaPrimary: 'Join Early Bird',
       ctaSecondary: 'Watch Intro',
       credential: 'Team from Seoul Nat\'l Univ · KAIST · Berkeley · Expert-reviewed content',
@@ -533,6 +573,44 @@ const translations = {
       legal: 'Legal',
       legalLinks: ['Privacy Policy', 'Terms of Service', 'Support'],
       copyright: '© 2026 STEAM Village. All rights reserved. Made with ❤️ for curious kids.',
+    },
+    betaStats: {
+      badge: 'Beta Test Results',
+      stat1Value: '3.2×',
+      stat1Label: 'Focus time increase',
+      stat2Value: '89%',
+      stat2Label: 'Return rate',
+      stat3Value: '47min',
+      stat3Label: 'Avg. immersion time',
+      stat4Value: '92%',
+      stat4Label: 'STEAM concept retention',
+      footnote: '*100 children aged 5-11, 4-week beta test results (Feb 2026)',
+    },
+    painSolution: {
+      painTitle: 'Sound familiar?',
+      pains: [
+        '"My kid watches YouTube for 30 min but gets bored of edu apps in 5"',
+        '"Learning apps are all about scores — my child is afraid of getting it wrong"',
+        '"Math is math, science is science... learning them separately doesn\'t connect"',
+      ],
+      solutionTitle: 'STEAM Village\'s Answer',
+      solutions: [
+        {
+          icon: '🎨',
+          title: 'Like play, like adventure',
+          desc: 'Kids stay immersed for an average of <strong>47 minutes</strong> without feeling like they\'re "studying"',
+        },
+        {
+          icon: '💡',
+          title: 'Turning failure into exploration',
+          desc: 'Instead of scores, we ask <strong>"Why did you think that?"</strong>',
+        },
+        {
+          icon: '🌈',
+          title: 'STEAM through art',
+          desc: 'While drawing, children naturally <strong>retain 92% of science & math concepts</strong>',
+        },
+      ],
     },
   },
 }

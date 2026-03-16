@@ -88,9 +88,12 @@ const Hero = () => {
                 </motion.div>
               ))}
             </div>
-            <h1 className="leading-tight" style={{fontSize: '48px', fontWeight: 800, background: 'linear-gradient(135deg, rgb(124, 58, 237) 0%, rgb(249, 115, 22) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
+            <h1 className="leading-tight" style={{fontSize: '42px', fontWeight: 800, background: 'linear-gradient(135deg, rgb(124, 58, 237) 0%, rgb(249, 115, 22) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
               {t.hero.title}<br />{t.hero.titleBr}
             </h1>
+            <p className="text-lg font-bold leading-relaxed" style={{color: 'rgb(30, 30, 30)'}}>
+              {t.hero.subtitle}
+            </p>
             <p className="text-base leading-relaxed" style={{color: 'rgb(100, 116, 139)'}}>
               {t.hero.desc}
             </p>
@@ -123,41 +126,28 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative rounded-[20px] overflow-hidden" style={{boxShadow: 'rgba(124, 58, 237, 0.15) 0px 8px 32px'}}>
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full block rounded-[20px]"
-              >
-                <source src="/hero-video.mp4" type="video/mp4" />
-              </video>
-              {/* Gradient overlay to cover bottom-right watermark */}
-              <div className="absolute bottom-0 right-0 w-28 h-12 bg-gradient-to-tl from-white/90 via-white/50 to-transparent rounded-tl-2xl"></div>
+            {/* App Mockup Placeholder */}
+            <div className="relative rounded-[24px] border-2 border-dashed border-purple-200 bg-white/60 backdrop-blur-sm flex flex-col items-center justify-center py-24 px-8" style={{minHeight: '420px'}}>
+              {/* Corner brackets */}
+              <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-purple-300 rounded-tl-lg"></div>
+              <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-purple-300 rounded-tr-lg"></div>
+              <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-purple-300 rounded-bl-lg"></div>
+              <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-purple-300 rounded-br-lg"></div>
 
-              {/* Floating decorations */}
-              <motion.span
-                className="absolute -top-4 -right-4 text-4xl"
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                🎨
-              </motion.span>
-              <motion.span
-                className="absolute -bottom-4 -left-4 text-3xl"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                ⭐
-              </motion.span>
-              <motion.span
-                className="absolute top-1/4 -right-8 text-2xl"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-              >
-                🖌️
-              </motion.span>
+              <div className="w-20 h-20 rounded-full bg-purple-100 flex items-center justify-center mb-6">
+                <svg className="w-10 h-10 text-purple-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" opacity="0"/>
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" opacity="0.3"/>
+                  <path d="M9 9a3 3 0 100 6 3 3 0 000-6zM15 9a3 3 0 100 6 3 3 0 000-6z" opacity="0.5"/>
+                  <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.3"/>
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                  <circle cx="9" cy="10" r="1.5"/>
+                  <circle cx="15" cy="10" r="1.5"/>
+                </svg>
+              </div>
+              <p className="text-xl font-bold text-gray-800 mb-2">{t.hero.mockupTitle}</p>
+              <p className="text-sm text-gray-400">{t.hero.mockupDesc}</p>
             </div>
           </motion.div>
         </div>
