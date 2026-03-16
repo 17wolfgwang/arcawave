@@ -112,13 +112,23 @@ const Hero = () => {
                 {t.hero.ctaSecondary}
               </button>
             </div>
-            <div className="pt-4 flex items-center gap-2 text-sm" style={{color: 'rgb(100, 116, 139)'}}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-award w-4 h-4 text-success flex-shrink-0">
-                <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path>
-                <circle cx="12" cy="8" r="6"></circle>
-              </svg>
-              <span>{t.hero.credential}</span>
-            </div>
+            {/* Trust Badges */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="pt-2 flex flex-wrap items-center gap-3"
+            >
+              {t.hero.trustBadges?.map((badge, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-full px-3.5 py-1.5 shadow-sm"
+                >
+                  <span className="text-sm">{badge.icon}</span>
+                  <span className="text-xs font-medium text-gray-600">{badge.text}</span>
+                </div>
+              ))}
+            </motion.div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 30 }}

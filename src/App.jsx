@@ -3,8 +3,7 @@ import { LanguageProvider } from './i18n/LanguageContext'
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
 import Features from './components/Features'
-import LearningProcess from './components/LearningProcess'
-import WeeklyContent from './components/WeeklyContent'
+import TestimonialHighlight from './components/TestimonialHighlight'
 import AppPreview from './components/AppPreview'
 import Testimonials from './components/Testimonials'
 import About from './components/About'
@@ -16,6 +15,7 @@ import WaveDivider from './components/WaveDivider'
 import FloatingDecorations from './components/FloatingDecorations'
 import BetaStats from './components/BetaStats'
 import PainSolution from './components/PainSolution'
+import MidCTA from './components/MidCTA'
 
 function App() {
   return (
@@ -26,27 +26,25 @@ function App() {
 
       <Hero />
 
-      <BetaStats />
-
       <PainSolution />
+
+      <AppPreview />
+
+      <MidCTA />
 
       <Features />
       <WaveDivider />
 
-      <LearningProcess />
-      <WaveDivider flip />
+      <BetaStats />
 
-      <WeeklyContent />
-      <WaveDivider />
-
-      <AppPreview />
-      <WaveDivider flip />
-
-      <About />
+      <TestimonialHighlight />
       <WaveDivider />
 
       <Testimonials />
       <WaveDivider flip />
+
+      <About />
+      <WaveDivider />
 
       <Products />
       <WaveDivider />
