@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import { useLanguage } from '../i18n/LanguageContext'
 
 const TestimonialHighlight = () => {
@@ -10,7 +11,13 @@ const TestimonialHighlight = () => {
       <div style={{height: '120px'}}></div>
       <section className="relative py-20 px-4 bg-background">
         <div className="max-w-[900px] mx-auto">
-          <div className="bg-white rounded-[24px] p-10 lg:p-16" style={{boxShadow: '0 4px 40px rgba(124, 58, 237, 0.08)'}}>
+          <motion.div
+            className="bg-white rounded-2xl border border-border/50 p-10 lg:p-16 shadow-card-lg"
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5 }}
+          >
             <div className="text-center">
               {/* Quote icon */}
               <div className="w-16 h-16 rounded-full mx-auto mb-8 flex items-center justify-center" style={{background: 'linear-gradient(135deg, #7C3AED, #A855F7)'}}>
@@ -21,12 +28,12 @@ const TestimonialHighlight = () => {
               </div>
 
               {/* Quote */}
-              <h2 className="text-foreground mb-6" style={{fontSize: 'clamp(22px, 3.5vw, 32px)', fontWeight: 800, lineHeight: 1.4}}>
+              <h2 className="text-foreground mb-6">
                 {d.quote}
               </h2>
 
               {/* Subtitle */}
-              <p className="text-base mb-8" style={{color: 'rgb(100, 116, 139)', lineHeight: 1.7}}>
+              <p className="text-base mb-8 text-body-text leading-relaxed">
                 {d.subtitle1}<br />{d.subtitle2}
               </p>
 
@@ -37,7 +44,7 @@ const TestimonialHighlight = () => {
                 </div>
                 <div className="text-left">
                   <div className="font-bold text-foreground text-sm">{d.name}</div>
-                  <div className="text-xs" style={{color: 'rgb(148, 163, 184)'}}>{d.role}</div>
+                  <div className="text-xs text-caption">{d.role}</div>
                 </div>
               </div>
             </div>
@@ -46,14 +53,20 @@ const TestimonialHighlight = () => {
             <div className="border-t border-gray-100 mt-10 pt-8">
               <div className="grid grid-cols-3 gap-4 text-center">
                 {d.stats.map((stat, i) => (
-                  <div key={i}>
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                  >
                     <div className="text-2xl lg:text-3xl font-extrabold mb-1" style={{background: stat.gradient, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>{stat.value}</div>
-                    <div className="text-xs" style={{color: 'rgb(148, 163, 184)'}}>{stat.label}</div>
-                  </div>
+                    <div className="text-xs text-caption">{stat.label}</div>
+                  </motion.div>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

@@ -33,10 +33,10 @@ export default function MidCTA() {
               {s.desc}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button className="bg-white text-purple-700 px-8 py-3.5 rounded-xl font-bold text-base hover:bg-purple-50 transition-colors shadow-lg">
+              <button className="bg-white text-purple-700 px-8 py-3.5 rounded-full font-bold text-base hover:bg-purple-50 transition-colors shadow-lg">
                 {s.ctaPrimary}
               </button>
-              <button className="bg-white/15 text-white px-8 py-3.5 rounded-xl font-semibold text-base border border-white/20 hover:bg-white/25 transition-colors backdrop-blur-sm">
+              <button className="bg-white/15 text-white px-8 py-3.5 rounded-full font-semibold text-base border border-white/20 hover:bg-white/25 transition-colors backdrop-blur-sm">
                 {s.ctaSecondary}
               </button>
             </div>

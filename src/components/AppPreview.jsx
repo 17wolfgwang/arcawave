@@ -30,8 +30,7 @@ const AppPreview = () => {
         <div className="max-w-[1200px] mx-auto">
           {/* Badge */}
           <div className="text-center mb-6">
-            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold"
-              style={{ backgroundColor: 'rgba(251, 146, 60, 0.08)', color: '#F97316' }}>
+            <span className="badge badge-secondary">
               ✨ {d.badge}
             </span>
           </div>
@@ -41,7 +40,7 @@ const AppPreview = () => {
             <h2 className="mb-4" style={{ lineHeight: 1.3 }}
               dangerouslySetInnerHTML={{ __html: d.title }}
             />
-            <p className="text-lg" style={{ color: 'rgb(100, 116, 139)' }}>
+            <p className="text-lg text-body-text">
               {d.desc}
             </p>
           </div>
@@ -87,7 +86,7 @@ const AppPreview = () => {
                     className="flex-shrink-0 px-2"
                     style={{ width: `calc(${100 / visibleCount}% - ${24 * (visibleCount - 1) / visibleCount}px)` }}
                   >
-                    <div className="rounded-[20px] overflow-hidden border-[3px] border-gray-200 bg-white"
+                    <div className="rounded-2xl overflow-hidden border-2 border-border bg-white"
                       style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.08)' }}
                     >
                       <img
@@ -101,7 +100,7 @@ const AppPreview = () => {
                     {/* Label */}
                     <div className="text-center mt-5">
                       <p className="font-bold text-foreground text-base mb-1">{screen.label}</p>
-                      <p className="text-sm" style={{ color: 'rgb(148, 163, 184)' }}>{screen.sub}</p>
+                      <p className="text-sm text-caption">{screen.sub}</p>
                     </div>
                   </div>
                 ))}

@@ -88,29 +88,39 @@ const Hero = () => {
                 </motion.div>
               ))}
             </div>
-            <h1 className="leading-tight" style={{fontSize: '42px', fontWeight: 800, background: 'linear-gradient(135deg, rgb(124, 58, 237) 0%, rgb(249, 115, 22) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
+            <h1 className="leading-tight" style={{background: 'linear-gradient(135deg, rgb(124, 58, 237) 0%, rgb(249, 115, 22) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
               {t.hero.title}<br />{t.hero.titleBr}
             </h1>
-            <p className="text-lg font-bold leading-relaxed" style={{color: 'rgb(30, 30, 30)'}}>
+            <p className="text-lg font-bold leading-relaxed text-foreground">
               {t.hero.subtitle}
             </p>
-            <p className="text-base leading-relaxed" style={{color: 'rgb(100, 116, 139)'}}>
+            <p className="text-base leading-relaxed text-body-text">
               {t.hero.desc}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-primary text-white px-8 py-4 rounded-[12px] flex items-center justify-center gap-2 text-base font-semibold" tabIndex="0" style={{boxShadow: 'rgba(124, 58, 237, 0.2) 0px 4px 12px'}}>
+              <motion.button
+                className="bg-primary text-white px-8 py-4 rounded-full flex items-center justify-center gap-2 text-base font-semibold"
+                tabIndex="0"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+              >
                 {t.hero.ctaPrimary}
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right w-5 h-5">
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path>
                 </svg>
-              </button>
-              <button className="bg-transparent text-foreground px-8 py-4 rounded-[12px] border-2 border-primary/20 flex items-center justify-center gap-2 text-base font-semibold" tabIndex="0" style={{boxShadow: 'rgba(124, 58, 237, 0.08) 0px 2px 8px'}}>
+              </motion.button>
+              <motion.button
+                className="bg-white text-foreground px-8 py-4 rounded-full border border-border flex items-center justify-center gap-2 text-base font-semibold"
+                tabIndex="0"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-play w-5 h-5">
                   <polygon points="6 3 20 12 6 21 6 3"></polygon>
                 </svg>
                 {t.hero.ctaSecondary}
-              </button>
+              </motion.button>
             </div>
             {/* Trust Badges */}
             <motion.div
@@ -122,10 +132,10 @@ const Hero = () => {
               {t.hero.trustBadges?.map((badge, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-full px-3.5 py-1.5 shadow-sm"
+                  className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm border border-border/50 rounded-full px-3.5 py-1.5 shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
                 >
                   <span className="text-sm">{badge.icon}</span>
-                  <span className="text-xs font-medium text-gray-600">{badge.text}</span>
+                  <span className="text-xs font-medium text-body-text">{badge.text}</span>
                 </div>
               ))}
             </motion.div>
@@ -156,8 +166,8 @@ const Hero = () => {
                   <circle cx="15" cy="10" r="1.5"/>
                 </svg>
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-2">{t.hero.mockupTitle}</p>
-              <p className="text-sm text-gray-400">{t.hero.mockupDesc}</p>
+              <p className="text-xl font-bold text-foreground mb-2">{t.hero.mockupTitle}</p>
+              <p className="text-sm text-caption">{t.hero.mockupDesc}</p>
             </div>
           </motion.div>
         </div>
