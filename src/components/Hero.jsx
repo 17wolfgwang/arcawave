@@ -71,6 +71,35 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
+            {/* University Logos + Subtitle */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="space-y-3"
+            >
+              <div className="flex items-center gap-8 opacity-40">
+                {[
+                  { src: '/assets/images/logos/snu.svg', alt: '서울대학교', w: 'w-[110px]' },
+                  { src: '/assets/images/logos/kaist.svg', alt: 'KAIST', w: 'w-[80px]' },
+                  { src: '/assets/images/logos/berkeley.svg', alt: 'UC Berkeley', w: 'w-[105px]' },
+                ].map((logo, i) => (
+                  <motion.img
+                    key={logo.alt}
+                    src={logo.src}
+                    alt={logo.alt}
+                    className={`${logo.w} h-auto`}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 + i * 0.1 }}
+                  />
+                ))}
+              </div>
+              <p className="text-sm font-semibold tracking-wide text-foreground/70">
+                {t.hero.subtitle}
+              </p>
+            </motion.div>
+            {/* Tags */}
             <div className="flex flex-wrap gap-3">
               {t.hero.tags.map((tag, i) => (
                 <motion.div
@@ -91,9 +120,6 @@ const Hero = () => {
             <h1 className="leading-tight" style={{background: 'linear-gradient(135deg, rgb(124, 58, 237) 0%, rgb(249, 115, 22) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
               {t.hero.title}<br />{t.hero.titleBr}
             </h1>
-            <p className="text-lg font-bold leading-relaxed text-foreground">
-              {t.hero.subtitle}
-            </p>
             <p className="text-base leading-relaxed text-body-text">
               {t.hero.desc}
             </p>
