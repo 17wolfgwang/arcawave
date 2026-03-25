@@ -78,17 +78,17 @@ const Hero = () => {
               transition={{ duration: 0.5 }}
               className="space-y-3"
             >
-              <div className="flex items-center gap-8 opacity-40">
+              <div className="flex items-center gap-8 opacity-50">
                 {[
-                  { src: '/assets/images/logos/snu.svg', alt: '서울대학교', w: 'w-[110px]' },
-                  { src: '/assets/images/logos/kaist.svg', alt: 'KAIST', w: 'w-[80px]' },
-                  { src: '/assets/images/logos/berkeley.svg', alt: 'UC Berkeley', w: 'w-[105px]' },
+                  { src: '/assets/images/logos/snu.png', alt: '서울대학교', h: 'h-[36px]' },
+                  { src: '/assets/images/logos/kaist.png', alt: 'KAIST', h: 'h-[36px]' },
+                  { src: '/assets/images/logos/berkeley.svg', alt: 'UC Berkeley', h: 'h-[36px]' },
                 ].map((logo, i) => (
                   <motion.img
                     key={logo.alt}
                     src={logo.src}
                     alt={logo.alt}
-                    className={`${logo.w} h-auto`}
+                    className={`${logo.h} w-auto`}
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.15 + i * 0.1 }}
@@ -172,28 +172,26 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            {/* App Mockup Placeholder */}
-            <div className="relative rounded-[24px] border-2 border-dashed border-purple-200 bg-white/60 backdrop-blur-sm flex flex-col items-center justify-center py-24 px-8" style={{minHeight: '420px'}}>
+            {/* App Video */}
+            <div className="relative p-4">
               {/* Corner brackets */}
-              <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-purple-300 rounded-tl-lg"></div>
-              <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-purple-300 rounded-tr-lg"></div>
-              <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-purple-300 rounded-bl-lg"></div>
-              <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-purple-300 rounded-br-lg"></div>
-
-              <div className="w-20 h-20 rounded-full bg-purple-100 flex items-center justify-center mb-6">
-                <svg className="w-10 h-10 text-purple-500" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" opacity="0"/>
-                  <circle cx="12" cy="12" r="3" />
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" opacity="0.3"/>
-                  <path d="M9 9a3 3 0 100 6 3 3 0 000-6zM15 9a3 3 0 100 6 3 3 0 000-6z" opacity="0.5"/>
-                  <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.3"/>
-                  <path d="M8 14s1.5 2 4 2 4-2 4-2" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                  <circle cx="9" cy="10" r="1.5"/>
-                  <circle cx="15" cy="10" r="1.5"/>
-                </svg>
+              <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-purple-300 rounded-tl-xl"></div>
+              <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-purple-300 rounded-tr-xl"></div>
+              <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-purple-300 rounded-bl-xl"></div>
+              <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-purple-300 rounded-br-xl"></div>
+              {/* Dashed border */}
+              <div className="absolute inset-2 rounded-2xl border-2 border-dashed border-purple-200 pointer-events-none"></div>
+              <div className="relative rounded-2xl overflow-hidden shadow-card-lg">
+                <video
+                  className="w-full h-auto"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src="/assets/videos/AI_Ed.mp4" type="video/mp4" />
+                </video>
               </div>
-              <p className="text-xl font-bold text-foreground mb-2">{t.hero.mockupTitle}</p>
-              <p className="text-sm text-caption">{t.hero.mockupDesc}</p>
             </div>
           </motion.div>
         </div>
