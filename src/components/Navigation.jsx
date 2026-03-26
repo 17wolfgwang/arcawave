@@ -37,7 +37,7 @@ const Navigation = () => {
             </svg>
           </div>
           <div>
-            <div className="font-bold text-xl text-foreground" style={{fontFamily: 'var(--font-display)'}}>STEAM Village</div>
+            <div className="font-bold text-xl text-foreground" style={{fontFamily: 'var(--font-display)'}}>Jellying</div>
             <div className="text-xs text-body-text">{t.nav.subtitle}</div>
           </div>
         </div>

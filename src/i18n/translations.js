@@ -37,7 +37,7 @@ const translations = {
     },
     // Features
     features: {
-      badge1: 'What is STEAM Village',
+      badge1: 'What is Jellying',
       title1: '아이가 경험하는 건',
       title1Br: "'학습'이 아닌 '모험'입니다",
       desc1: '매주 새로운 화가를 만나 그들의 세계를 탐험하며,',
@@ -47,10 +47,10 @@ const translations = {
       badge2: 'Competitive Advantage',
       title2: '단순한 교육 앱과',
       title2Br: '차원이 다릅니다',
-      cardTitle: '왜 STEAM Village인가요?',
+      cardTitle: '왜 Jellying인가요?',
       cardDesc: '다른 교육 앱과의 차이점',
       othersLabel: '일반적인 교육 앱',
-      usLabel: 'STEAM Village',
+      usLabel: 'Jellying',
       others: ['단순 반복 학습과 드릴 문제', '점수와 등수 중심의 평가', '과목별로 분리된 학습', '수동적인 영상 시청', '표준화된 콘텐츠만 제공'],
       us: ['놀이처럼 느껴지는 모험 기반 학습', '사고 과정을 기록하는 성장 리포트', '예술로 통합된 STEAM 융합 교육', '인터랙티브한 직접 참여 활동', '전문가 감수받은 큐레이션 콘텐츠'],
       bottomTagline: '✨ 아이의 창의성과 사고력을 동시에 키우는 유일한 방법',
@@ -137,7 +137,7 @@ const translations = {
           role: '7세 아이 아빠',
         },
         {
-          quote: '"미술 학원은 그림만, 과학 교구는 실험만 했는데 STEAM Village는 둘이 자연스럽게 연결돼요. 아이가 모네 그림 보며 \'빛이 반사돼!\'라고 하더라구요."',
+          quote: '"미술 학원은 그림만, 과학 교구는 실험만 했는데 Jellying는 둘이 자연스럽게 연결돼요. 아이가 모네 그림 보며 \'빛이 반사돼!\'라고 하더라구요."',
           name: '이지혜',
           initial: '이',
           role: '5세 아이 엄마',
@@ -262,10 +262,27 @@ const translations = {
       title2: '누가 만드나요?',
       desc2: '서울대 · KAIST · 미대 · UC Berkeley 출신의 제작과 감수, 그리고 엄선된 교육 콘텐츠',
       team: [
-        { name: '김민수', school: '서울대학교', role: '교육 콘텐츠 총괄', desc: '교육공학 전공. STEAM 교육과정 설계 및 평가 체계 구축' },
-        { name: '이지원', school: 'KAIST 문화기술대학원', role: '기술 총괄 CTO', desc: 'AR·AI 기반 인터랙티브 교육 플랫폼 개발' },
-        { name: '박서연', school: '홍익대 미대', role: '아트 디렉터', desc: 'IP 캐릭터 디자인 및 비주얼 키 설정. 전체 아트워크 감수' },
-        { name: '정하늘', school: 'UC Berkeley Design', role: 'UX·프로덕트 디자인', desc: '4~8세 아동 UX 설계. 글로벌 에듀테크 경험' },
+        {
+          name: '두지언',
+          role: 'CEO',
+          school: 'KAIST 메타버스대학원 박사 Candidate\nKAIST 문화기술대학원 석사\n홍익대 미술대학 회화 / 예술학 학사',
+          highlights: ['문화예술교육사 / 학예사 자격 보유', '예술의전당 어린이영재아카데미 교육 프로그램', 'Art-Tech 실감형 XR Heritage Tourism PM', '박물관 및 미술관 교육 프로그램 기획'],
+          paper: '유아/초등 창의예술교육 10년 경력',
+        },
+        {
+          name: 'Josh Jang',
+          role: 'CTO',
+          school: 'UC Berkeley 디자인공학 석사',
+          highlights: ['Lawrence Lab Computer Vision for Children 전시 프로젝트 디자인 & 개발', 'MIT Reality Hack Qualcomm 트랙 수상', 'Snap Spectacle AR Glass Co-op 프로젝트 인터랙션 개발자'],
+          paper: 'Human-AI Interaction 기반 아동 교육 시스템 설계 & 개발',
+        },
+        {
+          name: '최윤서',
+          role: 'CPO',
+          school: '서울대학교 정보문화(HCI)/언어/심리 학사과정',
+          highlights: ['서울대학교 CES 2026 Silicon Valley 창업 PJ 1위', '카카오임팩트 테크포임팩트 PJ 혁신기술상(1위)', "HCI 중심 '쓰기 좋은' 서비스 만드는 UX/UI 디자이너", '인천국제고 인문영재교육원 수료'],
+          paper: '대치동 고입/대입 컨설팅 및 초중등 멘토링 다수',
+        },
       ],
       advisorTitle: '자문단',
       advisorTags: ['유아교육학 교수', '아동미술치료사', 'STEAM 교육과정 전문가', '아동발달심리 전문가'],
@@ -273,7 +290,7 @@ const translations = {
     },
     // Pricing
     pricing: {
-      whyTitle: '왜 STEAM Village를 선택해야 할까요?',
+      whyTitle: '왜 Jellying를 선택해야 할까요?',
       whyDesc: '아이의 미래를 위한 확실한 투자',
       whyCard1Title: '예술로 시작하는 STEAM',
       whyCard1Desc: '그림과 창작으로 시작해 과학·수학·공학을 자연스럽게 익혀요',
@@ -314,7 +331,7 @@ const translations = {
     contact: {
       title: '아이의 창의성이 피어나는',
       titleBr: '첫 모험을 시작하세요',
-      desc: '7일 무료 체험으로 STEAM Village를 경험해보세요.',
+      desc: '7일 무료 체험으로 Jellying를 경험해보세요.',
       descBr: '신용카드 등록 없이 바로 시작할 수 있습니다.',
       ctaPrimary: '무료 체험 시작하기',
       ctaSecondary: '얼리버드 혜택 보기',
@@ -331,7 +348,7 @@ const translations = {
       companyLinks: ['About Us', 'Our Team', 'Contact'],
       legal: 'Legal',
       legalLinks: ['Privacy Policy', 'Terms of Service', '고객지원'],
-      copyright: '© 2026 STEAM Village. All rights reserved. Made with ❤️ for curious kids.',
+      copyright: '© 2026 Jellying. All rights reserved. Made with ❤️ for curious kids.',
     },
     betaStats: {
       badge: '베타 테스트 검증 데이터',
@@ -401,7 +418,7 @@ const translations = {
     },
     // Features
     features: {
-      badge1: 'What is STEAM Village',
+      badge1: 'What is Jellying',
       title1: "What kids experience isn't",
       title1Br: "'learning' — it's an 'adventure'",
       desc1: 'Each week, they meet a new artist and explore their world,',
@@ -411,10 +428,10 @@ const translations = {
       badge2: 'Competitive Advantage',
       title2: 'A different level from',
       title2Br: 'ordinary education apps',
-      cardTitle: 'Why STEAM Village?',
+      cardTitle: 'Why Jellying?',
       cardDesc: 'What sets us apart from other education apps',
       othersLabel: 'Typical Education Apps',
-      usLabel: 'STEAM Village',
+      usLabel: 'Jellying',
       others: ['Simple repetitive drills', 'Score & ranking-based assessment', 'Subjects taught in isolation', 'Passive video watching', 'One-size-fits-all content'],
       us: ['Adventure-based learning that feels like play', 'Growth reports tracking thinking process', 'Art-integrated STEAM education', 'Interactive hands-on activities', 'Expert-curated content'],
       bottomTagline: '✨ The only way to nurture creativity and critical thinking together',
@@ -501,7 +518,7 @@ const translations = {
           role: 'Dad of a 7-year-old',
         },
         {
-          quote: '"Art class was just drawing, science kits were just experiments — STEAM Village connects them naturally. My kid looked at Monet\'s painting and said \'The light is reflecting!\'"',
+          quote: '"Art class was just drawing, science kits were just experiments — Jellying connects them naturally. My kid looked at Monet\'s painting and said \'The light is reflecting!\'"',
           name: 'Jihye Lee',
           initial: 'J',
           role: 'Mom of a 5-year-old',
@@ -626,10 +643,27 @@ const translations = {
       title2: 'Who makes this?',
       desc2: 'Built and reviewed by graduates of Seoul Nat\'l Univ · KAIST · Art School · UC Berkeley',
       team: [
-        { name: 'Minsu Kim', school: 'Seoul National Univ.', role: 'Head of Education', desc: 'Education Technology major. STEAM curriculum design & assessment' },
-        { name: 'Jiwon Lee', school: 'KAIST Graduate School', role: 'CTO', desc: 'AR/AI-based interactive education platform development' },
-        { name: 'Seoyeon Park', school: 'Hongik Univ. Fine Arts', role: 'Art Director', desc: 'IP character design & visual key. Overall artwork supervision' },
-        { name: 'Haneul Jung', school: 'UC Berkeley Design', role: 'UX/Product Design', desc: 'UX design for ages 4-8. Global edtech experience' },
+        {
+          name: 'Jieon Du',
+          role: 'CEO',
+          school: 'KAIST Metaverse PhD Candidate\nKAIST Culture Technology MS\nHongik Univ. Fine Arts BA',
+          highlights: ['Certified Cultural Arts Educator / Curator', "Seoul Arts Center Children's Academy Program", 'Art-Tech XR Heritage Tourism PM', 'Museum & Gallery Education Program Planning'],
+          paper: '10 years of experience in creative arts education for young children',
+        },
+        {
+          name: 'Josh Jang',
+          role: 'CTO',
+          school: 'UC Berkeley Design Engineering MS',
+          highlights: ['Lawrence Lab Computer Vision for Children Exhibition Design & Dev', 'MIT Reality Hack Qualcomm Track Winner', 'Snap Spectacle AR Glass Co-op Interaction Developer'],
+          paper: 'Human-AI Interaction based children\'s education system design & development',
+        },
+        {
+          name: 'Yunseo Choi',
+          role: 'CPO',
+          school: 'Seoul National Univ. HCI / Linguistics / Psychology',
+          highlights: ['SNU CES 2026 Silicon Valley Startup PJ 1st Place', 'Kakao Impact Tech4Impact PJ Innovation Award (1st)', "HCI-centered UX/UI Designer building 'easy-to-use' services", 'Incheon Int\'l HS Humanities Gifted Program'],
+          paper: 'Extensive tutoring & mentoring for K-12 students',
+        },
       ],
       advisorTitle: 'Advisory Board',
       advisorTags: ['Early Childhood Ed. Professor', 'Art Therapist', 'STEAM Curriculum Expert', 'Child Dev. Psychologist'],
@@ -637,7 +671,7 @@ const translations = {
     },
     // Pricing
     pricing: {
-      whyTitle: 'Why choose STEAM Village?',
+      whyTitle: 'Why choose Jellying?',
       whyDesc: "A solid investment in your child's future",
       whyCard1Title: 'STEAM through Art',
       whyCard1Desc: 'Start with drawing and creating, naturally learn science, math & engineering',
@@ -678,7 +712,7 @@ const translations = {
     contact: {
       title: "Let your child's creativity bloom —",
       titleBr: 'start the first adventure',
-      desc: 'Try STEAM Village free for 7 days.',
+      desc: 'Try Jellying free for 7 days.',
       descBr: 'Start right away — no credit card required.',
       ctaPrimary: 'Start Free Trial',
       ctaSecondary: 'View Early Bird Benefits',
@@ -695,7 +729,7 @@ const translations = {
       companyLinks: ['About Us', 'Our Team', 'Contact'],
       legal: 'Legal',
       legalLinks: ['Privacy Policy', 'Terms of Service', 'Support'],
-      copyright: '© 2026 STEAM Village. All rights reserved. Made with ❤️ for curious kids.',
+      copyright: '© 2026 Jellying. All rights reserved. Made with ❤️ for curious kids.',
     },
     betaStats: {
       badge: 'Beta Test Results',

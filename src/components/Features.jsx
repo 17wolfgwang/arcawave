@@ -91,7 +91,7 @@ const Features = () => {
               <div className="text-center mb-10">
                 <h3 className="text-2xl font-bold text-foreground mb-2">
                   <span className="text-body-text">{"왜 "}</span>
-                  <span className="text-primary">STEAM Village</span>
+                  <span className="text-primary">Jellying</span>
                   <span className="text-body-text">{"인가요?"}</span>
                 </h3>
                 <p className="text-sm text-caption">{t.features.cardDesc}</p>
@@ -127,7 +127,7 @@ const Features = () => {
                     ))}
                   </div>
                 </div>
-                {/* STEAM Village */}
+                {/* Jellying */}
                 <div>
                   <div className="flex items-center gap-2 mb-6">
                     <div className="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center">

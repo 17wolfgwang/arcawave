@@ -52,17 +52,6 @@ export default function PainSolution() {
                 ))}
               </ul>
             </div>
-            {/* Right - Image */}
-            <div className="flex-shrink-0 w-full md:w-[240px]">
-              <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img
-                  src="/assets/images/pain-hero.png"
-                  alt="엄마와 아이가 태블릿으로 함께하는 모습"
-                  className="w-full h-auto object-cover"
-                  style={{ aspectRatio: '1/1' }}
-                />
-              </div>
-            </div>
           </div>
         </motion.div>
 

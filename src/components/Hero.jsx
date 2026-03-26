@@ -82,7 +82,7 @@ const Hero = () => {
                 {[
                   { src: '/assets/images/logos/snu.png', alt: '서울대학교', h: 'h-[36px]' },
                   { src: '/assets/images/logos/kaist.png', alt: 'KAIST', h: 'h-[36px]' },
-                  { src: '/assets/images/logos/berkeley.svg', alt: 'UC Berkeley', h: 'h-[36px]' },
+                  { src: '/assets/images/logos/berkeley_.svg', alt: 'UC Berkeley', h: 'h-[36px]' },
                 ].map((logo, i) => (
                   <motion.img
                     key={logo.alt}

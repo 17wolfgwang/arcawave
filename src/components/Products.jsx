@@ -31,35 +31,48 @@ const Products = () => {
               {t.products.desc2}
             </p>
           </motion.div>
-          {/* Team - 4 columns */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-[1100px] mx-auto">
+          {/* Team - 3 columns */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-[1100px] mx-auto">
             {t.products.team.map((member, i) => (
               <motion.div
                 key={i}
-                className="bg-white rounded-2xl border border-border/50 p-6 text-center relative shadow-card-sm"
+                className="bg-white rounded-2xl border border-border/50 p-8 text-center relative shadow-card-sm"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -4 }}
               >
-                <div className="relative mx-auto mb-4 w-20 h-20">
-                  <div className="w-full h-full rounded-full border-4 border-dashed border-primary/20 flex items-center justify-center bg-primary/5">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-user w-8 h-8 text-primary/30">
+                {/* Avatar placeholder */}
+                <div className="relative mx-auto mb-5 w-24 h-24">
+                  <div className="w-full h-full rounded-full border-4 border-dashed border-primary/20 flex items-center justify-center bg-primary/5 overflow-hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 text-primary/30">
                       <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
                       <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                   </div>
-                  <div className="absolute -top-1 -right-1 text-secondary">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"></path>
-                    </svg>
-                  </div>
                 </div>
-                <h4 className="mb-1.5 text-foreground font-bold text-base">{member.name}</h4>
-                <div className="mb-0.5 text-xs font-semibold text-primary">{member.school}</div>
-                <div className="mb-3 text-xs font-semibold text-secondary">{member.role}</div>
-                <p className="text-xs leading-relaxed text-body-text">{member.desc}</p>
+                {/* Role badge */}
+                <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 mb-3">
+                  <span className="text-xs font-bold text-primary">{member.role}</span>
+                </div>
+                {/* Name */}
+                <h4 className="text-xl font-bold text-foreground mb-3">{member.name}</h4>
+                {/* School */}
+                <div className="text-sm font-semibold text-foreground/80 mb-4 leading-relaxed whitespace-pre-line">{member.school}</div>
+                {/* Highlights */}
+                <div className="text-left space-y-2 mb-4">
+                  {member.highlights?.map((item, j) => (
+                    <div key={j} className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/40 flex-shrink-0"></span>
+                      <span className="text-xs leading-relaxed text-body-text">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                {/* Paper/Note */}
+                {member.paper && (
+                  <p className="text-xs leading-relaxed text-caption italic border-t border-border/30 pt-3 mt-3">{member.paper}</p>
+                )}
               </motion.div>
             ))}
           </div>
