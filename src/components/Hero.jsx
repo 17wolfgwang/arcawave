@@ -1,7 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../i18n/LanguageContext'
 
 const Hero = () => {
+  const { t } = useLanguage()
+
   return (
     <section className="relative pt-32 pb-20 px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -69,7 +72,7 @@ const Hero = () => {
             className="space-y-8"
           >
             <div className="flex flex-wrap gap-3">
-              {["4~8세", "STEAM 융합", "매주 새 화가"].map((tag, i) => (
+              {t.hero.tags.map((tag, i) => (
                 <motion.div
                   key={tag}
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -86,14 +89,14 @@ const Hero = () => {
               ))}
             </div>
             <h1 className="leading-tight" style={{fontSize: '48px', fontWeight: 800, background: 'linear-gradient(135deg, rgb(124, 58, 237) 0%, rgb(249, 115, 22) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
-              명화를 보고, 빛을 배우고,<br />나만의 그림을 그리는 모험
+              {t.hero.title}<br />{t.hero.titleBr}
             </h1>
             <p className="text-base leading-relaxed" style={{color: 'rgb(100, 116, 139)'}}>
-              모네의 빛, 고흐의 감정, 칸딘스키의 도형 속에 과학·수학·공학이 숨어있습니다. 아이는 모험을 할 뿐, STEAM은 자연스럽게.
+              {t.hero.desc}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="bg-primary text-white px-8 py-4 rounded-[12px] flex items-center justify-center gap-2 text-base font-semibold" tabIndex="0" style={{boxShadow: 'rgba(124, 58, 237, 0.2) 0px 4px 12px'}}>
-                얼리버드 신청하기
+                {t.hero.ctaPrimary}
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right w-5 h-5">
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path>
@@ -103,7 +106,7 @@ const Hero = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-play w-5 h-5">
                   <polygon points="6 3 20 12 6 21 6 3"></polygon>
                 </svg>
-                소개 영상 보기
+                {t.hero.ctaSecondary}
               </button>
             </div>
             <div className="pt-4 flex items-center gap-2 text-sm" style={{color: 'rgb(100, 116, 139)'}}>
@@ -111,7 +114,7 @@ const Hero = () => {
                 <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path>
                 <circle cx="12" cy="8" r="6"></circle>
               </svg>
-              <span>서울대 · KAIST · 버클리 출신 팀 · 전문가 감수 교육 콘텐츠</span>
+              <span>{t.hero.credential}</span>
             </div>
           </motion.div>
           <motion.div
@@ -131,14 +134,14 @@ const Hero = () => {
                     <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
                   </svg>
                 </div>
-                <p className="text-lg font-semibold text-foreground">앱 화면 목업</p>
-                <p className="text-sm" style={{color: 'rgb(100, 116, 139)'}}>IP/화면 확정 후 교체</p>
+                <p className="text-lg font-semibold text-foreground">{t.hero.mockupTitle}</p>
+                <p className="text-sm" style={{color: 'rgb(100, 116, 139)'}}>{t.hero.mockupDesc}</p>
               </div>
               <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-primary/30 rounded-tl-lg"></div>
               <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-primary/30 rounded-tr-lg"></div>
               <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-primary/30 rounded-bl-lg"></div>
               <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-primary/30 rounded-br-lg"></div>
-              
+
               {/* Floating decorations */}
               <motion.span
                 className="absolute -top-4 -right-4 text-4xl"

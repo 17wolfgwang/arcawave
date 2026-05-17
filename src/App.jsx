@@ -1,4 +1,5 @@
 import React from 'react'
+import { LanguageProvider } from './i18n/LanguageContext'
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
 import Features from './components/Features'
@@ -13,6 +14,7 @@ import FloatingDecorations from './components/FloatingDecorations'
 
 function App() {
   return (
+    <LanguageProvider>
     <main className="relative min-h-screen bg-background overflow-x-hidden">
       <FloatingDecorations />
       <Navigation />
@@ -38,6 +40,7 @@ function App() {
       <Contact />
       <Footer />
     </main>
+    </LanguageProvider>
   )
 }
 
